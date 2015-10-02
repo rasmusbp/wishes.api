@@ -1,0 +1,75 @@
+{
+  "name": "Wish",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "ownerId": {
+      "type": "string",
+      "required": true,
+      "index": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "shopUrl": {
+      "type": "string"
+    },
+    "price": {
+      "type": "number",
+      "required": false
+    },
+    "addedDate": {
+      "type": "date",
+      "required": true
+    },
+    "modifiedDate": {
+      "type": "date",
+      "required": true
+    },
+    "id": {
+      "type": "number",
+      "id": true,
+      "index": true
+    },
+    "buyAt": {
+      "type": [
+        "string"
+      ],
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "category": {
+      "type": "belongsTo",
+      "model": "Owner",
+      "foreignKey": "id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}

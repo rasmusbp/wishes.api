@@ -1,0 +1,45 @@
+{
+  "name": "Owner",
+  "plural": "Owners",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "avatarUrl": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "category": {
+      "type": "hasMany",
+      "model": "Wish",
+      "foreignKey": "id"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    }
+  ],
+  "methods": {}
+}
