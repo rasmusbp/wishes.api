@@ -11,5 +11,11 @@
     "name": "mongodb",
     "connector": "mongodb",
     "user": "wishes_dev_admin"
+  },
+  "storage": {
+    "name": "storage",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "./server/storage"
   }
 }

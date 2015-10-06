@@ -18,6 +18,12 @@
     "permission": "DENY"
   },
   {
+    "accessType": "READ",
+    "principalType": "ROLE",
+    "principalId": "$unauthenticated",
+    "permission": "DENY"
+  },
+  {
     "accessType": "WRITE",
     "principalType": "ROLE",
     "principalId": "$authenticated",
@@ -32,16 +38,15 @@
   {
     "accessType": "READ",
     "principalType": "ROLE",
-    "principalId": "$everyone",
-    "permission": "ALLOW",
-    "property": "find"
+    "principalId": "$authenticated",
+    "permission": "ALLOW"
   },
   {
-    "accessType": "READ",
+    "accessType": "EXECUTE",
     "principalType": "ROLE",
     "principalId": "$everyone",
     "permission": "ALLOW",
-    "property": "findById"
+    "property": "download"
   }],
   "methods": {}
 }
