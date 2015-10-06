@@ -29,6 +29,10 @@
       "type": "number",
       "required": false
     },
+    "isActive": {
+      "type": "boolean",
+      "required": true
+    },
     "addedDate": {
       "type": "date",
       "required": true
@@ -51,7 +55,7 @@
   },
   "validations": [],
   "relations": {
-    "category": {
+    "owner": {
       "type": "belongsTo",
       "model": "Owner",
       "foreignKey": "id"
@@ -59,16 +63,42 @@
   },
   "acls": [
     {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
       "accessType": "WRITE",
       "principalType": "ROLE",
       "principalId": "$unauthenticated",
       "permission": "DENY"
     },
     {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
       "accessType": "EXECUTE",
       "principalType": "ROLE",
-      "principalId": "$unauthenticated",
-      "permission": "DENY"
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "find"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "findById"
     }
   ],
   "methods": {}

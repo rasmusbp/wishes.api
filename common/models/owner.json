@@ -21,7 +21,7 @@
   },
   "validations": [],
   "relations": {
-    "category": {
+    "wishes": {
       "type": "hasMany",
       "model": "Wish",
       "foreignKey": "id"
@@ -29,16 +29,30 @@
   },
   "acls": [
     {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
+    },
+    {
       "accessType": "WRITE",
       "principalType": "ROLE",
       "principalId": "$unauthenticated",
       "permission": "DENY"
     },
     {
-      "accessType": "EXECUTE",
+      "accessType": "READ",
       "principalType": "ROLE",
-      "principalId": "$unauthenticated",
-      "permission": "DENY"
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "find"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "findById"
     }
   ],
   "methods": {}
