@@ -11,9 +11,12 @@ module.exports = function(Container) {
       srcPath: filePath,
       dstPath: filePath,
       quality: 0.7,
-      width: 300
-    }, next);
-    
+      width: 300,
+      customArgs: ['-auto-orient', true]
+    }, function(err) {
+      next();
+    });
+
   });
 
 };
