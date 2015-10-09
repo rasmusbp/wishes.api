@@ -9,7 +9,7 @@ module.exports = function (app) {
 
   _.extend(dataSourceConnector, {
 
-    maxFileSize: 2097152, // <- 2MB
+    maxFileSize: 6000000, // <- ~ 6-5MB
     // generate random file name to avoid conflicts
     getFilename: function (file) {
 

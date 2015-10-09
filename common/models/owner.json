@@ -15,6 +15,10 @@
       "type": "string",
       "required": true
     },
+    "isActive": {
+      "type": "boolean",
+      "required": true
+    },
     "avatarUrl": {
       "type": "string"
     }
