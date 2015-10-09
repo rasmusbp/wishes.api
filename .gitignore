@@ -18,3 +18,4 @@ ng-tmp
 coverage
 node_modules
 npm-debug.log
+server/storage/images/*
